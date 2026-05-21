@@ -54,14 +54,16 @@ export async function submitListing(
   }
 
   // Insert — RLS "listings: verified seller insert" policy is the second gate
-  const { error } = await supabase.from('listings').insert({
-    seller_id: user.id,
-    title: parsed.data.title,
-    description: parsed.data.description,
-    price: parsed.data.price,
-    currency: parsed.data.currency,
-    status: 'pending_review',
-  })
+  const { error } = await supabase
+    .from('listings')
+    .insert({
+      seller_id: user.id,
+      title: parsed.data.title,
+      description: parsed.data.description,
+      price: parsed.data.price,
+      currency: parsed.data.currency,
+      status: 'pending_review',
+    })
 
   if (error) {
     return { message: `Failed to submit listing: ${error.message}` }
