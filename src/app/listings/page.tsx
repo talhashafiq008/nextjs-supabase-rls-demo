@@ -1,5 +1,6 @@
 import { fetchLiveListings } from '@/actions/listings'
-import type { Listing } from '@/lib/supabase/types'
+import type { Tables } from '@/lib/supabase/types'
+type Listing = Tables<'listings'>
 
 export const revalidate = 60
 

@@ -1,7 +1,8 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { publishListing, declineListing, closeListing } from '@/actions/operator'
-import type { Listing } from '@/lib/supabase/types'
+import type { Tables } from '@/lib/supabase/types'
+type Listing = Tables<'listings'>
 
 const statusConfig = {
   pending_review: { label: 'Pending Review', color: 'bg-amber-100 text-amber-700 border-amber-200' },
