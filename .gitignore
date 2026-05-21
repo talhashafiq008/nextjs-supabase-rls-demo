@@ -1,0 +1,4 @@
+.env
+playwright.config.ts
+.next
+node_modules
